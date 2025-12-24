@@ -281,6 +281,10 @@ a {
     animation: pulse 1.5s infinite;
 }
 
+.menu-check, .hamburguesa {
+    display: none;
+}
+
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
@@ -304,6 +308,44 @@ a {
 
 
 @media (max-width: 768px) {
+    .hamburguesa {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburguesa span {
+        width: 30px;
+        height: 4px;
+        background: var(--neon-cyan); 
+        display: block;
+    }
+
+    .nav__list {
+        display: none; 
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background: var(--night-bg);
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: var(--pixel-border) solid var(--neon-cyan);
+    }
+
+    /*Si tocas las rayas, el menú se muestra */
+    .menu-check:checked ~ .nav__list {
+        display: flex;
+    }
+    
+    
+    .menu-check {
+        display: none;
+    }
+    
+    
     .hero, .contact { 
         display: flex;
         flex-direction: column; 
@@ -322,4 +364,5 @@ a {
         width: 100%;
         height: auto;
     }
+
 }
